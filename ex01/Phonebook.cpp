@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 14:56:53 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/09/16 18:41:01 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/09/16 19:05:37 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,20 +42,50 @@ void Phonebook::add_contact(void)
 	std::string dr_scr;
 
 	std::cout << "Enter first name" << std::endl;
-	std::getline(std::cin, f_name);
+	while (!f_name.length())
+	{
+		std::getline(std::cin, f_name);
+		if (std::cin.eof())
+			exit (0);
+	}
 	this->contacts[this->index % 8].set_first_name(f_name);
+
 	std::cout << "Enter last name" << std::endl;
-	std::getline(std::cin, l_name);
+	while (!l_name.length())
+	{
+		std::getline(std::cin, l_name);
+		if (std::cin.eof())
+			exit (0);
+	}
 	this->contacts[this->index % 8].set_last_name(l_name);
+
 	std::cout << "Enter nick name" << std::endl;
-	std::getline(std::cin, n_name);
+	while (!n_name.length())
+	{
+		std::getline(std::cin, n_name);
+		if (std::cin.eof())
+			exit (0);
+	}
 	this->contacts[this->index % 8].set_nick_name(n_name);
+
 	std::cout << "Enter phone number" << std::endl;
-	std::getline(std::cin, ph_nbr);
+	while (!ph_nbr.length())
+	{
+		std::getline(std::cin, ph_nbr);
+		if (std::cin.eof())
+			exit (0);
+	}
 	this->contacts[this->index % 8].set_phone_nbr(ph_nbr);
+
 	std::cout << "Enter darkest secret" << std::endl;
-	std::getline(std::cin, dr_scr);
+	while (!dr_scr.length())
+	{
+		std::getline(std::cin, dr_scr);
+		if (std::cin.eof())
+			exit (0);
+	}
 	this->contacts[this->index % 8].set_darkest_secret(dr_scr);
+
 	this->index++;
 }
 
@@ -111,6 +141,8 @@ void	Phonebook::search_contact(void)
 	}
 	std::cout << "Enter index" << std::endl;
 	std::cin >> index;
+	if (std::cin.eof())
+		exit (0);
 	if (std::isdigit(index) && index - 48 <= this->index && index > 48)
 		this->get_contact_info(index - 48 - 1);
 	else
