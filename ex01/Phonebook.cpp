@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 14:56:53 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/10/08 11:26:14 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/10/08 12:28:41 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 #include "Phonebook.hpp"
 #include "Contacts.hpp"
 
-Phonebook::Phonebook()
-{
-	this->index = 0;
+Phonebook::Phonebook() : index (0) {
+
 }
 
-Phonebook::~Phonebook()
-{
+Phonebook::~Phonebook() {
 
 }
 
