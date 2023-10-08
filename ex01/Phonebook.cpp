@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 14:56:53 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/10/08 12:54:44 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/10/08 13:58:13 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,7 +172,7 @@ void	Phonebook::search_contact(void)
 
 	i = 0;
 	index = this->index + 1;
-	std::cout << "| index   |first name| last name| nickname |" << std::endl;
+	std::cout << "|    index|first name| last name|  nickname|" << std::endl;
 	std::cout << "|---------|----------|----------|----------|" << std::endl;
 	while (i < this->index && i < 8)
 	{
@@ -184,11 +184,16 @@ void	Phonebook::search_contact(void)
 	}
 	while (index < 0 || index > this->index)
 	{
-		std::cout << "Enter index" << std::endl;
+		std::cout << "Enter index to show infos or 0 to return" << std::endl;
 		std::cin >> index;
 		if (std::cin.eof())
 			exit (0);
-		if (index > 0 && index <= this->index)
+		if (!index) {
+			std::cin.clear();
+			std::cin.ignore(256, '\n');
+			break;
+		}
+		if (index > 0 && index <= this->index && index <= 8)
 			this->get_contact_info(index - 1);
 		else {
 			std::cout << "Invalid index!" << std::endl;
