@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 14:56:53 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/10/08 13:58:13 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/10/08 15:27:48 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,7 +188,7 @@ void	Phonebook::search_contact(void)
 		std::cin >> index;
 		if (std::cin.eof())
 			exit (0);
-		if (!index) {
+		if (!index && !std::cin.fail()) {
 			std::cin.clear();
 			std::cin.ignore(256, '\n');
 			break;
