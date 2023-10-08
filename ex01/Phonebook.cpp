@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 14:56:53 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/10/08 12:28:41 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/10/08 12:54:44 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,7 +168,7 @@ void	Phonebook::print_contact(Contacts contact)
 void	Phonebook::search_contact(void)
 {
 	int i;
-	char index;
+	int index = -1;
 
 	i = 0;
 	index = this->index + 1;
@@ -182,14 +182,19 @@ void	Phonebook::search_contact(void)
 		std::cout << "|---------|----------|----------|----------|" << std::endl;
 		i++;
 	}
-	std::cout << "Enter index" << std::endl;
-	std::cin >> index;
-	if (std::cin.eof())
-		exit (0);
-	if (std::isdigit(index) && index - 48 <= this->index && index > 48)
-		this->get_contact_info(index - 48 - 1);
-	else
-		std::cout << "Invalid index" << std::endl;
-	std::cin.clear();
-	std::cin.ignore(256, '\n');
+	while (index < 0 || index > this->index)
+	{
+		std::cout << "Enter index" << std::endl;
+		std::cin >> index;
+		if (std::cin.eof())
+			exit (0);
+		if (index > 0 && index <= this->index)
+			this->get_contact_info(index - 1);
+		else {
+			std::cout << "Invalid index!" << std::endl;
+			index = -1;
+		}
+		std::cin.clear();
+		std::cin.ignore(256, '\n');
+	}
 }
