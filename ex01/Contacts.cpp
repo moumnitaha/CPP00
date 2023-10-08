@@ -6,11 +6,10 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 14:21:59 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/09/16 14:47:39 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/10/08 15:08:47 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Contacts.hpp"
 
 Contacts::Contacts()
