@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 11:33:44 by tmoumni           #+#    #+#             */
-/*   Updated: 2023/09/16 17:14:01 by tmoumni          ###   ########.fr       */
+/*   Updated: 2023/10/08 11:47:05 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ class Phonebook {
 		void		print_contact(Contacts contact);
 		void		get_contact_info(int index);
 };
+
+std::string trim(const std::string &str);
 
 #endif
